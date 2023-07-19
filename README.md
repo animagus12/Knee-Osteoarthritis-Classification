@@ -61,7 +61,7 @@ pip install -r requirements.txt
 
 Landing Page | About
 --- | ---
-![Landing Page]([WebImages/Landing.jpg](https://github.com/animagus12/Knee-Osteoarthritis-Classification/edit/main/README.md)) | ![About]([WebImages/About.jpg](https://github.com/animagus12/Knee-Osteoarthritis-Classification/edit/main/README.md))
+![Landing Page](https://github.com/animagus12/Knee-Osteoarthritis-Classification/edit/main/README.md) | ![About]([WebImages/About.jpg](https://github.com/animagus12/Knee-Osteoarthritis-Classification/edit/main/README.md))
 
 Application | Application Working 
 --- | ---
