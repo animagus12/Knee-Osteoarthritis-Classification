@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Knee Osteoarthritis</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Simple line icons-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+    rel="stylesheet" />
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+    rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+
+
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand"><a href="#page-top">KL Classifier</a></li>
+      <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
+      <li class="sidebar-nav-item"><a href="#services">Services</a></li>
+      <li class="sidebar-nav-item"><a href="#about">About</a></li>
+      <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <!-- Header-->
+  <header class="masthead d-flex align-items-center">
+    <div class="container px-4 px-lg-5 text-center">
+      <h1 class="mb-1" style="text-shadow: 3px 3px #000;">Knee Osteoarthritis</h1>
+      <h3 class="mb-5" style="text-shadow: 2px 2px #000;"><em>using KL Classifier</em></h3>
+      <a class="upload-label" href="#services">Check you grade!</a>
+    </div>
+  </header>
+
+
+  <!-- Services-->
+  <section class="callout text-center" id="services">
+    <div class="container text-center">
+      <div id="content" style="margin-top:2em">
+
+        <h2 class="classify">Select your Xray!</h2>
+
+        <div>
+          <form id="upload-file" method="post" enctype="multipart/form-data">
+            <label for="imageUpload" class="upload-label">
+              Choose...
+            </label>
+
+            <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+          </form>
+
+          <div class="image-section" style="display:none;">
+            <div class="img-preview">
+              <div id="imagePreview">
+              </div>
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary btn-lg" id="btn-predict"
+                style="margin-top: 2vh;">Predict!</button>
+            </div>
+          </div>
+
+          <div class="loader" style="display:none;"></div>
+
+          <h3 id="result">
+            <span style="margin-top: 2vh;"> </span>
+          </h3>
+
+        </div>
+
+      </div>
+
+  </section>
+
+  <!-- About-->
+  <section class="content-section bg-light" id="about">
+    <div class="container px-4 px-lg-5 text-center">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-10">
+          <h2>About!</h2>
+          <p class="lead mb-5">
+            Knee osteoarthritis is a degenerative joint disease that affects millions of people worldwide.
+            It is characterized by the breakdown of cartilage in the knee joint, leading to pain, stiffness, and reduced
+            mobility.
+            <br>
+            <br>
+            Unfortunately, there is currently no cure for knee osteoarthritis, but there are several treatment options available 
+            to manage symptoms and slow disease progression. These may include weight loss, physical therapy, pain management, 
+            and joint injections. In more severe cases, surgery such as knee replacement or osteotomy may be necessary.
+            <br>
+            <br>
+            The Kellgren-Lawrence (KL) grading system is a widely used method for classifying the severity of knee
+            osteoarthritis
+            based on X-ray images. The system uses a scale of 0 to 4, where 0 indicates no evidence of osteoarthritis
+            and 4 indicates
+            severe osteoarthritis with significant joint space narrowing and bone deformities. Accurate and early
+            detection of knee
+            osteoarthritis using the KL grading system is crucial for effective treatment and management of the disease.
+            <br>
+            <br>
+            This project is aimed at developing deep learning models for the detection of knee osteoarthritis and
+            grading the
+            Kellgren-Lawrence (KL) severity using two models: a manually trained "AlexNet5" and a fine-tuned "Xception"
+            model.
+            <br>
+            <br>
+            <h3>Dataset!</h3>
+            <p class="lead mb-5">
+            The dataset consists of 1650 digital X-ray images of knee joint which are collected from well reputed hospitals and 
+            diagnostic centres. The X-ray images are acquired using PROTEC PRS 500E X-ray machine. Original images are 8-bit 
+            grayscale image.  Each radiographic knee X-ray image is manually annotated /labelled as per Kellgren and Lawrence 
+            grades by 2 medical experts. A novel approach has been developed to automatically extract the Cartilage region 
+            (region of interest) based on density of pixels.</p>
+            <p><a href="https://data.mendeley.com/datasets/t9ndx37v5h/1"><cite>Gornale, Shivanand; Patravali, Pooja (2020), “Digital Knee X-ray Images”, Mendeley Data, V1, doi: 10.17632/t9ndx37v5h.1</cite></a></p>
+            <br>
+            <br>
+            <h3>Manually Trained AlexNet5</h3>
+            <div class="image-grid">
+              <img class="image-grid-col-2" src="{{ url_for('static', filename='assets/plots/AlexNetPlot.png') }}"
+                alt="AlexNetPLot">
+              <img class="image-grid-col-2" src="{{ url_for('static', filename='assets/plots/AlexNetClassReport.png') }}"
+                alt="XceptionPLot">
+            </div>
+
+            <h3>Fine Tuned Xception Model</h3>
+            <div class="image-grid">
+              <img class="image-grid-col-2" src="{{ url_for('static', filename='assets/plots/XceptionPlot.png') }}"
+                alt="XceptionPLot">
+              <img class="image-grid-col-2" src="{{ url_for('static', filename='assets/plots/XceptionClassRrport.png') }}"
+                alt="XceptionPLot">
+            </div>
+
+            <h3>Confusion Matrices of the above!</h3>
+            <div class="image-grid">
+              <img class = "image-grid-last-col" src="{{ url_for('static', filename='assets/plots/AlexNetConfMatrix.png') }}" alt="XceptionPLot">
+              <img class = "image-grid-last-col" src="{{ url_for('static', filename='assets/plots/XceptionConfMatrix.png') }}" alt="XceptionPLot">
+            </div>
+
+          </p>
+          <a class="upload-label" href="#services">What We Offer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map-->
+  <div class="map" id="contact">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.750239197585!2d85.810784810386!3d20.351934110602816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19092289cbfcef%3A0x26d133989a910e1a!2sKalinga%20Institute%20of%20Medical%20Sciences%20(KIMS)!5e0!3m2!1sen!2sin!4v1681330785741!5m2!1sen!2sin" 
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <br />
+    <small><a
+        href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.750239197585!2d85.810784810386!3d20.351934110602816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19092289cbfcef%3A0x26d133989a910e1a!2sKalinga%20Institute%20of%20Medical%20Sciences%20(KIMS)!5e0!3m2!1sen!2sin!4v1681330785741!5m2!1sen!2sin"></a></small>
+  </div>
+  <!-- Footer-->
+  <footer class="footer text-center">
+    <div class="container px-4 px-lg-5">
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="https://www.instagram.com/animagus._/"><i class="icon-social-instagram"></i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="https://twitter.com/Subhra_Jit12"><i class="icon-social-twitter"></i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/animagus12"><i class="icon-social-github"></i></a>
+        </li>
+      </ul>
+      <p class="text-muted small mb-0">Copyright &copy; Animagus 2023</p>
+    </div>
+  </footer>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+</body>
+
+</html>
